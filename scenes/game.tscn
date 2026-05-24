@@ -385,11 +385,19 @@ sources/0 = SubResource("TileSetAtlasSource_yqjtg")
 
 [sub_resource type="Environment" id="Environment_lnu2h"]
 background_mode = 3
+tonemap_mode = 4
 ssr_enabled = true
 ssao_enabled = true
 ssil_enabled = true
 sdfgi_enabled = true
 glow_enabled = true
+glow_levels/1 = 1.0
+glow_levels/2 = 1.0
+glow_levels/3 = 0.0
+glow_levels/4 = 0.0
+glow_levels/5 = 1.0
+glow_hdr_threshold = 1.5
+glow_hdr_luminance_cap = 2.0
 fog_enabled = true
 volumetric_fog_enabled = true
 adjustment_enabled = true
@@ -419,7 +427,7 @@ tile_map_data = PackedByteArray("AAADAAcAAAAEAAAAAAAEAAcAAAAEAAAAAAAFAAcAAAAEAAA
 tile_set = SubResource("TileSet_lnu2h")
 
 [node name="Player" parent="." unique_id=1884559595 instance=ExtResource("1_yqjtg")]
-modulate = Color(0.6955032, 0.6955031, 0.6955031, 1)
+modulate = Color(1.5, 1.5, 1.5, 1)
 position = Vector2(91, 92)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1420023354]

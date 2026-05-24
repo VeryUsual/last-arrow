@@ -48,3 +48,7 @@ offset_bottom = 40.0
 theme_override_fonts/font = ExtResource("4_dqkch")
 theme_override_font_sizes/font_size = 30
 text = "0"
+
+[node name="CoyoteTimer" type="Timer" parent="." unique_id=579601370]
+
+[connection signal="timeout" from="CoyoteTimer" to="." method="_on_coyote_timer_timeout"]
