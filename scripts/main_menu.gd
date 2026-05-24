@@ -2,7 +2,7 @@ extends Control
 
 var play_btn_tween: Tween
 var quit_btn_tween: Tween
-
+var options_btn_tween: Tween
 
 func _on_play_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/game.tscn")
@@ -26,10 +26,22 @@ func _on_quit_button_mouse_entered() -> void:
 	if quit_btn_tween and quit_btn_tween.is_running():
 		quit_btn_tween.kill()
 	quit_btn_tween = create_tween()
-	quit_btn_tween.tween_property($VBoxContainer/QuitButton, "scale", Vector2(1.1, 1.1), 0.1).set_trans(Tween.TRANS_ELASTIC)
+	quit_btn_tween.tween_property($VBoxContainer/QuitButton, "scale", Vector2(1.1, 1.1), 0.2).set_trans(Tween.TRANS_ELASTIC)
 
 func _on_quit_button_mouse_exited() -> void:
 	if quit_btn_tween and quit_btn_tween.is_running():
 		quit_btn_tween.kill()
 	quit_btn_tween = create_tween()
 	quit_btn_tween.tween_property($VBoxContainer/QuitButton, "scale", Vector2(1.0, 1.0), 0.1).set_trans(Tween.TRANS_ELASTIC)
+
+func _on_options_button_mouse_entered() -> void:
+	if options_btn_tween and options_btn_tween.is_running():
+		options_btn_tween.kill()
+	options_btn_tween = create_tween()
+	options_btn_tween.tween_property($VBoxContainer/OptionsButton, "scale", Vector2(1.1, 1.1), 0.1).set_trans(Tween.TRANS_ELASTIC)
+
+func _on_options_button_mouse_exited() -> void:
+	if options_btn_tween and options_btn_tween.is_running():
+		options_btn_tween.kill()
+	options_btn_tween = create_tween()
+	options_btn_tween.tween_property($VBoxContainer/OptionsButton, "scale", Vector2(1.0, 1.0), 0.1).set_trans(Tween.TRANS_ELASTIC)

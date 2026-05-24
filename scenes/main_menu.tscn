@@ -4,6 +4,13 @@
 [ext_resource type="FontFile" uid="uid://gblxpnjqvndy" path="res://assets/fonts/Kenney Mini Square Mono.ttf" id="1_l6cm7"]
 [ext_resource type="Texture2D" uid="uid://c1yxje58v65g" path="res://icon.svg" id="3_bqqt6"]
 
+[sub_resource type="Gradient" id="Gradient_bqqt6"]
+offsets = PackedFloat32Array(0, 0.9939759)
+colors = PackedColorArray(0.08235294, 0.08235294, 0.09803922, 1, 0.17049232, 0.16531289, 0.22249454, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_wu84c"]
+gradient = SubResource("Gradient_bqqt6")
+
 [node name="main_menu" type="Control" unique_id=548412221]
 layout_mode = 3
 anchors_preset = 15
@@ -12,6 +19,15 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ekxnf")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1839279288]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture1D_wu84c")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=2123302024]
 layout_mode = 1
@@ -41,12 +57,21 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("1_l6cm7")
 theme_override_font_sizes/font_size = 20
 text = "Play"
+flat = true
+
+[node name="OptionsButton" type="Button" parent="VBoxContainer" unique_id=501006043]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_l6cm7")
+theme_override_font_sizes/font_size = 20
+text = "Options"
+flat = true
 
 [node name="QuitButton" type="Button" parent="VBoxContainer" unique_id=1304502010]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_l6cm7")
 theme_override_font_sizes/font_size = 20
 text = "Quit"
+flat = true
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1813393283]
 position = Vector2(447.00003, 170.00002)
@@ -57,6 +82,8 @@ texture = ExtResource("3_bqqt6")
 [connection signal="mouse_entered" from="VBoxContainer/PlayButton" to="." method="_on_play_button_mouse_entered"]
 [connection signal="mouse_exited" from="VBoxContainer/PlayButton" to="." method="_on_play_button_mouse_exited"]
 [connection signal="pressed" from="VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="mouse_entered" from="VBoxContainer/OptionsButton" to="." method="_on_options_button_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer/OptionsButton" to="." method="_on_options_button_mouse_exited"]
 [connection signal="mouse_entered" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_mouse_entered"]
 [connection signal="mouse_exited" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_mouse_exited"]
 [connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
