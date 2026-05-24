@@ -399,7 +399,8 @@ adjustment_saturation = 0.9
 
 [sub_resource type="Gradient" id="Gradient_lnu2h"]
 interpolation_mode = 2
-offsets = PackedFloat32Array(0.20481928, 1)
+offsets = PackedFloat32Array(0.37951806, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.92527944, 0.92527944, 0.92527944, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_lbhrr"]
 gradient = SubResource("Gradient_lnu2h")
