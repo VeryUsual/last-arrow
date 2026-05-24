@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://c1yxje58v65g" path="res://icon.svg" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://bbejkpcpg55lh" path="res://scripts/player.gd" id="1_g2els"]
 [ext_resource type="Script" uid="uid://bk72ekhte0ay4" path="res://scripts/bow.gd" id="3_qhqgy"]
+[ext_resource type="FontFile" uid="uid://gblxpnjqvndy" path="res://assets/fonts/Kenney Mini Square Mono.ttf" id="4_dqkch"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3vyb7"]
 size = Vector2(12, 29)
@@ -36,3 +37,14 @@ rotation = 0.34906584
 points = PackedVector2Array(0, 0, 18, 0)
 width = 0.7
 end_cap_mode = 2
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=683010833]
+
+[node name="ArrowsLeftLabel" type="Label" parent="HUD" unique_id=1225673489]
+offset_left = 10.0
+offset_top = 2.0
+offset_right = 59.0
+offset_bottom = 40.0
+theme_override_fonts/font = ExtResource("4_dqkch")
+theme_override_font_sizes/font_size = 30
+text = "0"

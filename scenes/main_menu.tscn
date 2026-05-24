@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bbfqw57gmhlsj" path="res://scripts/main_menu.gd" id="1_ekxnf"]
 [ext_resource type="FontFile" uid="uid://gblxpnjqvndy" path="res://assets/fonts/Kenney Mini Square Mono.ttf" id="1_l6cm7"]
+[ext_resource type="Texture2D" uid="uid://c1yxje58v65g" path="res://icon.svg" id="3_bqqt6"]
 
 [node name="main_menu" type="Control" unique_id=548412221]
 layout_mode = 3
@@ -19,12 +20,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -162.6633
-offset_top = -162.0
-offset_right = 162.6633
-offset_bottom = 162.0
+offset_left = -195.0
+offset_top = -86.0
+offset_right = 30.0
+offset_bottom = 81.0
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
 alignment = 1
 
 [node name="TitleLabel" type="Label" parent="VBoxContainer" unique_id=1388159356]
@@ -46,5 +48,15 @@ theme_override_fonts/font = ExtResource("1_l6cm7")
 theme_override_font_sizes/font_size = 20
 text = "Quit"
 
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1813393283]
+position = Vector2(447.00003, 170.00002)
+scale = Vector2(0.515625, 1)
+skew = 0.20420352
+texture = ExtResource("3_bqqt6")
+
+[connection signal="mouse_entered" from="VBoxContainer/PlayButton" to="." method="_on_play_button_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer/PlayButton" to="." method="_on_play_button_mouse_exited"]
 [connection signal="pressed" from="VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="mouse_entered" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_mouse_exited"]
 [connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
