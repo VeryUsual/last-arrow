@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bdwck5lkqkoyw" path="res://scripts/game.gd" id="1_lnu2h"]
 [ext_resource type="Texture2D" uid="uid://dl2bltxppfo2f" path="res://assets/crystal_cave_tiles.png" id="1_uwrxv"]
 [ext_resource type="PackedScene" uid="uid://bv2tm6jlloq3i" path="res://scenes/player.tscn" id="1_yqjtg"]
+[ext_resource type="PackedScene" uid="uid://dhjwiuhlaufyy" path="res://scenes/bat.tscn" id="4_lbhrr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yqjtg"]
 texture = ExtResource("1_uwrxv")
@@ -545,6 +546,9 @@ text = "Options"
 [node name="QuitButton" type="Button" parent="CanvasLayer/EscMenu/VBoxContainer" unique_id=2087706874]
 layout_mode = 2
 text = "Quit"
+
+[node name="Bat" parent="." unique_id=1977565429 instance=ExtResource("4_lbhrr")]
+position = Vector2(249, 92)
 
 [connection signal="body_entered" from="TooFarDownArea2D" to="." method="_on_too_far_down_area_2d_body_entered"]
 [connection signal="pressed" from="CanvasLayer/EscMenu/VBoxContainer/BackToGameButton" to="." method="_on_back_to_game_button_pressed"]

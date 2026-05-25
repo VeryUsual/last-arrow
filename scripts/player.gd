@@ -10,6 +10,8 @@ var arrows = 4
 var coyote_frames = 6
 var coyote = false
 var last_floor = false
+var health = 100
+var damage_queue = []
 
 func _ready() -> void:
 	$Bow/Line2D.visible = false
@@ -72,6 +74,8 @@ func _physics_process(delta: float) -> void:
 			if can_release_bow:
 				shoot()
 			$Bow.shooting = false
+	
+	$HUD/HealthBar.value = health
 
 func shoot():
 	if arrows > 0:
@@ -83,3 +87,13 @@ func shoot():
 
 func _on_coyote_timer_timeout() -> void:
 	coyote = false
+
+func take_damage(damage):
+	damage_queue.append(damage)
+
+func _on_damage_timer_timeout() -> void:
+	if len(damage_queue) > 0:
+		health -= damage_queue.max()
+		if health <= 0:
+			get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+	damage_queue = []

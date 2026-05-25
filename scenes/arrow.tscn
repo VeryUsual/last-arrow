@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_umosx"]
 size = Vector2(23, 6)
 
-[node name="Arrow" type="Area2D" unique_id=981322593]
+[node name="Arrow" type="Area2D" unique_id=981322593 groups=["arrow"]]
 script = ExtResource("1_23jat")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=864837367]

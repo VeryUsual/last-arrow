@@ -10,6 +10,24 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3vyb7"]
 size = Vector2(12, 29)
 
+[sub_resource type="Gradient" id="Gradient_tuyoq"]
+colors = PackedColorArray(1, 1, 1, 1, 0.7708395, 0.77083945, 0.77083945, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_fjrip"]
+gradient = SubResource("Gradient_tuyoq")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tuyoq"]
+texture = SubResource("GradientTexture1D_fjrip")
+
+[sub_resource type="Gradient" id="Gradient_fjrip"]
+colors = PackedColorArray(0.81960785, 0, 0, 1, 1, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_smehm"]
+gradient = SubResource("Gradient_fjrip")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fjrip"]
+texture = SubResource("GradientTexture1D_smehm")
+
 [node name="Player" type="CharacterBody2D" unique_id=1884559595 groups=["player"]]
 script = ExtResource("1_g2els")
 
@@ -58,6 +76,25 @@ position = Vector2(17, 25)
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("6_tuyoq")
 
+[node name="HealthBar" type="ProgressBar" parent="HUD" unique_id=186738478]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = -31.0
+offset_right = 160.0
+offset_bottom = -4.0
+grow_vertical = 0
+theme_override_styles/background = SubResource("StyleBoxTexture_tuyoq")
+theme_override_styles/fill = SubResource("StyleBoxTexture_fjrip")
+value = 40.0
+show_percentage = false
+
 [node name="CoyoteTimer" type="Timer" parent="." unique_id=579601370]
 
+[node name="DamageTimer" type="Timer" parent="." unique_id=361265787]
+wait_time = 0.5
+autostart = true
+
 [connection signal="timeout" from="CoyoteTimer" to="." method="_on_coyote_timer_timeout"]
+[connection signal="timeout" from="DamageTimer" to="." method="_on_damage_timer_timeout"]
