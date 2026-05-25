@@ -2,6 +2,7 @@ extends Node2D
 
 var welcome_player_dialogue_resource: DialogueResource = load("res://dialogues/welcomeplayer.dialogue")
 var welcomeplayerbat_alreadydead = false
+var all_targets_dead = false
 
 func _ready() -> void:
 	$CanvasLayer/EscMenu.visible = false
@@ -43,6 +44,17 @@ func _process(delta: float) -> void:
 			get_tree().paused = true
 			DialogueManager.dialogue_ended.connect(_on_dialogue_ended)
 			$Player.arrows = 0
+
+	if not all_targets_dead:
+		if find_children("Target*", "Node").size() == 0:
+			all_targets_dead = true
+			$StaticBody2D/CollisionShape2D.disabled = true
+			$StaticBody2D2/CollisionShape2D.disabled = false
+			var dial_balloon = DialogueManager.show_dialogue_balloon(welcome_player_dialogue_resource, "dooropened")
+			dial_balloon.process_mode = Node.PROCESS_MODE_ALWAYS
+			DialogueManager.process_mode = Node.PROCESS_MODE_ALWAYS
+			get_tree().paused = true
+			DialogueManager.dialogue_ended.connect(_on_dialogue_ended)
 
 func _on_back_to_game_button_pressed() -> void:
 	$CanvasLayer/EscMenu.visible = false

@@ -8,3 +8,7 @@ Unknown: Okay, quickly try to defeat the bat to your left before it kills you!
 ~ trytoclimbthistower
 Unknown: Great! Now try to climb this tower and let's get out of here!
 => END
+
+~ dooropened
+[shake rate=20 level=10]An invisible door has opened...[/shake]
+=> END

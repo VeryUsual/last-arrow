@@ -2,6 +2,10 @@ extends Area2D
 
 var speed = 600
 
+func _ready() -> void:
+	await get_tree().create_timer(43.0).timeout
+	queue_free()
+
 func _physics_process(delta: float) -> void:
 	position += transform.x * speed * delta
 
