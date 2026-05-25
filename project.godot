@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Last Arrow"
-run/main_scene="uid://cmi4ft230an7s"
+run/main_scene="uid://ku5evy4f2f7w"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 

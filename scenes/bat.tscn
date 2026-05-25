@@ -221,7 +221,7 @@ autostart = true
 [node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=1667352001]
 position = Vector2(0, -6)
 emitting = false
-amount = 200
+amount = 150
 explosiveness = 0.14
 randomness = 0.42
 trail_enabled = true

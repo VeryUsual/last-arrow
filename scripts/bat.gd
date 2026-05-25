@@ -2,7 +2,8 @@ extends CharacterBody2D
 
 class_name BatEnemy
 
-const speed = 30
+const IDLEING_SPEED = 30
+const CHASING_SPEED = 50
 var is_chase: bool = true
 
 var health = 80
@@ -41,9 +42,9 @@ func _process(delta: float) -> void:
 func move(delta):
 	if !dead:
 		if !is_chase:
-			velocity += dir * speed * delta
+			velocity += dir * IDLEING_SPEED * delta
 		elif is_chase and !taking_damage:
-			var dir_to_player = position.direction_to(player.position) * speed
+			var dir_to_player = position.direction_to(player.position) * CHASING_SPEED
 			velocity.x = dir_to_player.x
 			dir.x = abs(velocity.x) / velocity.x
 		elif taking_damage:
