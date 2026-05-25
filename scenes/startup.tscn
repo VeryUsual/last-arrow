@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://balc1j608h3uw" path="res://assets/godot.png" id="1_t87yh"]
 [ext_resource type="Script" uid="uid://x883hv6kpeqc" path="res://scripts/startup.gd" id="1_tpfpu"]
 [ext_resource type="Shader" uid="uid://d2vc8s21xt478" path="res://shaders/glitch.gdshader" id="2_ybs1l"]
+[ext_resource type="Texture2D" uid="uid://dnwhrsrhfchlw" path="res://assets/arrow.png" id="4_j40w7"]
 
 [sub_resource type="Animation" id="Animation_t87yh"]
 length = 0.001
@@ -66,10 +67,68 @@ tracks/4/keys = {
 "update": 0,
 "values": [Color(0, 0, 0, 0)]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("2:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("ColorRect3:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("3/Label:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(246, 150.5)]
+}
+tracks/8/type = "bezier"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Sprite2D:position:x")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(639.99994, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/9/type = "bezier"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Sprite2D:position:y")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(168.00008, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
 
 [sub_resource type="Animation" id="Animation_crmxg"]
 resource_name = "startup"
-length = 2.3
+length = 4.25
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -137,12 +196,70 @@ tracks/5/path = NodePath(".")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(2.3),
+"times": PackedFloat32Array(4),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
 "method": &"to_main_menu_scene"
 }]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("2:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(2, 2.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("ColorRect3:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(2.38, 2.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("3/Label:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(2.7, 3.2),
+"transitions": PackedFloat32Array(1, 5),
+"update": 0,
+"values": [Vector2(246, -25.5), Vector2(246, 150.5)]
+}
+tracks/9/type = "bezier"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Sprite2D:position:x")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(-119.99999, -0.25, 0, 0.25, 0, 639.99994, -0.103333354, -126.666664, 0, 0),
+"times": PackedFloat32Array(3.33, 4.0333333)
+}
+tracks/10/type = "bezier"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Sprite2D:position:y")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(168.00003, -0.25, 0, 0.25, 0, 168.00008, -0.103333354, -7.6293945e-06, 0, 0),
+"times": PackedFloat32Array(3.33, 4.0333333)
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_t87yh"]
@@ -177,7 +294,41 @@ script = ExtResource("1_tpfpu")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=72219623]
 libraries/ = SubResource("AnimationLibrary_t87yh")
 
+[node name="3" type="Control" parent="." unique_id=328712888]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="3" unique_id=402454483]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.11858138, 0.11858138, 0.11858138, 1)
+
+[node name="Label" type="Label" parent="3" unique_id=130420414]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.0
+offset_top = -11.5
+offset_right = 166.0
+offset_bottom = 43.49994
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "Last Arrow"
+
 [node name="2" type="Control" parent="." unique_id=266815437]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -268,6 +419,7 @@ grow_vertical = 2
 color = Color(0, 0, 0, 0)
 
 [node name="ColorRect3" type="ColorRect" parent="." unique_id=1213818419]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -275,3 +427,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1374291052]
+position = Vector2(639.99994, 168.00008)
+rotation = 0.7853982
+scale = Vector2(3, 3)
+texture = ExtResource("4_j40w7")
