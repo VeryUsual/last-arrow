@@ -123,7 +123,7 @@ lifetime = 5.0
 explosiveness = 0.2
 randomness = 1.0
 trail_enabled = true
-trail_lifetime = 0.09999999999999999
+trail_lifetime = 0.1
 process_material = SubResource("ParticleProcessMaterial_bqqt6")
 
 [node name="GPUParticles2D2" type="GPUParticles2D" parent="." unique_id=1230650668]
@@ -133,7 +133,7 @@ lifetime = 5.0
 explosiveness = 0.2
 randomness = 1.0
 trail_enabled = true
-trail_lifetime = 0.09999999999999999
+trail_lifetime = 0.1
 process_material = SubResource("ParticleProcessMaterial_bqqt6")
 
 [node name="GPUParticles2D3" type="GPUParticles2D" parent="." unique_id=194279560]
@@ -142,7 +142,7 @@ amount = 1000
 lifetime = 10.0
 explosiveness = 0.2
 randomness = 0.13
-trail_lifetime = 0.09999999999999999
+trail_lifetime = 0.1
 process_material = SubResource("ParticleProcessMaterial_wu84c")
 
 [connection signal="mouse_entered" from="VBoxContainer/PlayButton" to="." method="_on_play_button_mouse_entered"]
@@ -150,6 +150,7 @@ process_material = SubResource("ParticleProcessMaterial_wu84c")
 [connection signal="pressed" from="VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="mouse_entered" from="VBoxContainer/OptionsButton" to="." method="_on_options_button_mouse_entered"]
 [connection signal="mouse_exited" from="VBoxContainer/OptionsButton" to="." method="_on_options_button_mouse_exited"]
+[connection signal="pressed" from="VBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]
 [connection signal="mouse_entered" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_mouse_entered"]
 [connection signal="mouse_exited" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_mouse_exited"]
 [connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

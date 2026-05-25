@@ -5,11 +5,12 @@
 [ext_resource type="Script" uid="uid://bk72ekhte0ay4" path="res://scripts/bow.gd" id="3_qhqgy"]
 [ext_resource type="FontFile" uid="uid://gblxpnjqvndy" path="res://assets/fonts/Kenney Mini Square Mono.ttf" id="4_dqkch"]
 [ext_resource type="Texture2D" uid="uid://bou1mc14eqsm7" path="res://assets/bow.png" id="4_qlg0r"]
+[ext_resource type="Texture2D" uid="uid://dnwhrsrhfchlw" path="res://assets/arrow.png" id="6_tuyoq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3vyb7"]
 size = Vector2(12, 29)
 
-[node name="Player" type="CharacterBody2D" unique_id=1884559595]
+[node name="Player" type="CharacterBody2D" unique_id=1884559595 groups=["player"]]
 script = ExtResource("1_g2els")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1370552492]
@@ -44,13 +45,18 @@ end_cap_mode = 2
 [node name="HUD" type="CanvasLayer" parent="." unique_id=683010833]
 
 [node name="ArrowsLeftLabel" type="Label" parent="HUD" unique_id=1225673489]
-offset_left = 10.0
-offset_top = 2.0
-offset_right = 59.0
-offset_bottom = 40.0
+offset_left = 31.0
+offset_top = 4.0
+offset_right = 80.0
+offset_bottom = 42.0
 theme_override_fonts/font = ExtResource("4_dqkch")
 theme_override_font_sizes/font_size = 30
 text = "0"
+
+[node name="ArrowsLeftSprite" type="Sprite2D" parent="HUD" unique_id=1317436488]
+position = Vector2(17, 25)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("6_tuyoq")
 
 [node name="CoyoteTimer" type="Timer" parent="." unique_id=579601370]
 

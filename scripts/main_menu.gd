@@ -51,3 +51,6 @@ func _on_options_button_mouse_exited() -> void:
 	options_btn_tween = create_tween()
 	options_btn_tween.tween_property($VBoxContainer/OptionsButton, "scale", Vector2(1.0, 1.0), 0.1).set_trans(Tween.TRANS_ELASTIC)
 	$VBoxContainer/OptionsButton.add_theme_constant_override("outline_size", 0)
+
+func _on_options_button_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/options.tscn")

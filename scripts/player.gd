@@ -16,7 +16,7 @@ func _ready() -> void:
 	$CoyoteTimer.wait_time = coyote_frames / 60.0
 
 func _process(delta: float) -> void:
-	$HUD/ArrowsLeftLabel.text = str(arrows) + " arrows left"
+	$HUD/ArrowsLeftLabel.text = str(arrows)
 
 func _physics_process(delta: float) -> void:
 	# Gravity
