@@ -32,6 +32,7 @@ func _process(delta: float) -> void:
 				DialogueManager.process_mode = Node.PROCESS_MODE_ALWAYS
 				get_tree().paused = true
 				DialogueManager.dialogue_ended.connect(_on_dialogue_ended)
+				$Player.arrows = 0
 		else:
 			welcomeplayerbat_alreadydead = true
 			await get_tree().process_frame
@@ -41,6 +42,7 @@ func _process(delta: float) -> void:
 			DialogueManager.process_mode = Node.PROCESS_MODE_ALWAYS
 			get_tree().paused = true
 			DialogueManager.dialogue_ended.connect(_on_dialogue_ended)
+			$Player.arrows = 0
 
 func _on_back_to_game_button_pressed() -> void:
 	$CanvasLayer/EscMenu.visible = false

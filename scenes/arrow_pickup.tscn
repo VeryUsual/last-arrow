@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://c2g811uhagjhd"]
+
+[ext_resource type="Texture2D" uid="uid://dnwhrsrhfchlw" path="res://assets/arrow.png" id="1_7x40s"]
+[ext_resource type="Script" uid="uid://drds8nxtorake" path="res://scripts/arrow_pickup.gd" id="1_qsx5o"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7x40s"]
+radius = 32.06244
+
+[node name="ArrowPickup" type="Node2D" unique_id=1106336650]
+script = ExtResource("1_qsx5o")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=604331267]
+texture = ExtResource("1_7x40s")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=333005977]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=943973494]
+shape = SubResource("CircleShape2D_7x40s")
+
+[node name="QuantityLabel" type="Label" parent="." unique_id=135796865]
+offset_left = 23.0
+offset_top = -35.0
+offset_right = 34.0
+offset_bottom = -12.0
+text = "Q"
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

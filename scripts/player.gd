@@ -6,7 +6,7 @@ const JUMP_VELOCITY = -370.0
 var mouse_position_at_shoot_start
 var can_release_bow = false
 var can_shoot = true
-var arrows = 4
+var arrows = 5
 var coyote_frames = 6
 var coyote = false
 var last_floor = false
