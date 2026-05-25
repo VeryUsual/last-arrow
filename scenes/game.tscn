@@ -547,7 +547,7 @@ text = "Options"
 layout_mode = 2
 text = "Quit"
 
-[node name="Bat" parent="." unique_id=1977565429 instance=ExtResource("4_lbhrr")]
+[node name="WelcomePlayerBat" parent="." unique_id=1977565429 instance=ExtResource("4_lbhrr")]
 position = Vector2(249, 92)
 
 [connection signal="body_entered" from="TooFarDownArea2D" to="." method="_on_too_far_down_area_2d_body_entered"]
