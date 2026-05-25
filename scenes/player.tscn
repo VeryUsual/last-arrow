@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://bbejkpcpg55lh" path="res://scripts/player.gd" id="1_g2els"]
 [ext_resource type="Script" uid="uid://bk72ekhte0ay4" path="res://scripts/bow.gd" id="3_qhqgy"]
 [ext_resource type="FontFile" uid="uid://gblxpnjqvndy" path="res://assets/fonts/Kenney Mini Square Mono.ttf" id="4_dqkch"]
+[ext_resource type="Texture2D" uid="uid://bou1mc14eqsm7" path="res://assets/bow.png" id="4_qlg0r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3vyb7"]
 size = Vector2(12, 29)
@@ -28,8 +29,10 @@ script = ExtResource("3_qhqgy")
 
 [node name="Sprite2D" type="Sprite2D" parent="Bow" unique_id=775859613]
 position = Vector2(12, 5.9604645e-08)
-scale = Vector2(0.04, 0.05125)
-texture = ExtResource("1_3vyb7")
+rotation = 2.443461
+scale = Vector2(0.7, 0.896)
+skew = 0.06981317
+texture = ExtResource("4_qlg0r")
 
 [node name="Line2D" type="Line2D" parent="Bow" unique_id=758600932]
 position = Vector2(20, 0)
