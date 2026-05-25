@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bbfqw57gmhlsj" path="res://scripts/main_menu.gd" id="1_ekxnf"]
 [ext_resource type="FontFile" uid="uid://gblxpnjqvndy" path="res://assets/fonts/Kenney Mini Square Mono.ttf" id="1_l6cm7"]
-[ext_resource type="Texture2D" uid="uid://c1yxje58v65g" path="res://icon.svg" id="3_bqqt6"]
+[ext_resource type="Texture2D" uid="uid://dnwhrsrhfchlw" path="res://assets/arrow.png" id="3_bqqt6"]
 
 [sub_resource type="Gradient" id="Gradient_bqqt6"]
 offsets = PackedFloat32Array(0, 0.9939759)
@@ -10,6 +10,36 @@ colors = PackedColorArray(0.08235294, 0.08235294, 0.09803922, 1, 0.17049232, 0.1
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_wu84c"]
 gradient = SubResource("Gradient_bqqt6")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_bqqt6"]
+particle_flag_disable_z = true
+angle_min = -89.99999
+angle_max = 90.000015
+spread = 180.0
+initial_velocity_min = 332.0
+initial_velocity_max = 1000.0
+gravity = Vector3(0, 0, 0)
+radial_accel_min = -51.61
+radial_accel_max = 47.309998
+turbulence_enabled = true
+turbulence_noise_strength = 0.1
+turbulence_noise_scale = 4.0
+turbulence_influence_max = 0.731
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_wu84c"]
+particle_flag_disable_z = true
+angle_min = 86.40001
+angle_max = 210.00002
+spread = 180.0
+initial_velocity_min = 332.0
+initial_velocity_max = 1000.0
+gravity = Vector3(0, 100, 0)
+radial_accel_min = -51.61
+radial_accel_max = 47.309998
+turbulence_enabled = true
+turbulence_noise_strength = 0.1
+turbulence_noise_scale = 4.0
+turbulence_influence_max = 0.731
 
 [node name="main_menu" type="Control" unique_id=548412221]
 layout_mode = 3
@@ -43,6 +73,7 @@ offset_bottom = 81.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_constants/separation = 8
 alignment = 1
 
 [node name="TitleLabel" type="Label" parent="VBoxContainer" unique_id=1388159356]
@@ -54,6 +85,8 @@ horizontal_alignment = 1
 
 [node name="PlayButton" type="Button" parent="VBoxContainer" unique_id=1973014227]
 layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 0
 theme_override_fonts/font = ExtResource("1_l6cm7")
 theme_override_font_sizes/font_size = 20
 text = "Play"
@@ -61,6 +94,8 @@ flat = true
 
 [node name="OptionsButton" type="Button" parent="VBoxContainer" unique_id=501006043]
 layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 0
 theme_override_fonts/font = ExtResource("1_l6cm7")
 theme_override_font_sizes/font_size = 20
 text = "Options"
@@ -68,6 +103,8 @@ flat = true
 
 [node name="QuitButton" type="Button" parent="VBoxContainer" unique_id=1304502010]
 layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 0
 theme_override_fonts/font = ExtResource("1_l6cm7")
 theme_override_font_sizes/font_size = 20
 text = "Quit"
@@ -75,9 +112,38 @@ flat = true
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1813393283]
 position = Vector2(447.00003, 170.00002)
-scale = Vector2(0.515625, 1)
+scale = Vector2(2.4, 4.651)
 skew = 0.20420352
 texture = ExtResource("3_bqqt6")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=1675546570]
+position = Vector2(204, 176)
+amount = 5
+lifetime = 5.0
+explosiveness = 0.2
+randomness = 1.0
+trail_enabled = true
+trail_lifetime = 0.09999999999999999
+process_material = SubResource("ParticleProcessMaterial_bqqt6")
+
+[node name="GPUParticles2D2" type="GPUParticles2D" parent="." unique_id=1230650668]
+position = Vector2(450, 168)
+amount = 5
+lifetime = 5.0
+explosiveness = 0.2
+randomness = 1.0
+trail_enabled = true
+trail_lifetime = 0.09999999999999999
+process_material = SubResource("ParticleProcessMaterial_bqqt6")
+
+[node name="GPUParticles2D3" type="GPUParticles2D" parent="." unique_id=194279560]
+position = Vector2(303, -15)
+amount = 1000
+lifetime = 10.0
+explosiveness = 0.2
+randomness = 0.13
+trail_lifetime = 0.09999999999999999
+process_material = SubResource("ParticleProcessMaterial_wu84c")
 
 [connection signal="mouse_entered" from="VBoxContainer/PlayButton" to="." method="_on_play_button_mouse_entered"]
 [connection signal="mouse_exited" from="VBoxContainer/PlayButton" to="." method="_on_play_button_mouse_exited"]
