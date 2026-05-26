@@ -23,7 +23,7 @@ func _process(delta: float) -> void:
 		$CanvasLayer/EscMenu.visible = not $CanvasLayer/EscMenu.visible
 	if Input.is_action_just_pressed("interact"):
 		if $Player in $Door/InteractArea.get_overlapping_bodies():
-			get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+			get_tree().change_scene_to_file("res://scenes/level3.tscn")
 
 func _on_back_to_game_button_pressed() -> void:
 	$CanvasLayer/EscMenu.visible = false
