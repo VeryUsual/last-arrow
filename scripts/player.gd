@@ -67,12 +67,13 @@ func _physics_process(delta: float) -> void:
 				can_shoot = true
 			
 			if Input.is_action_pressed("shoot"):
-				if mouse_position_at_shoot_start.x < position.x:
-					if $Bow/Line2D.rotation < -17:
-						$Bow/Line2D.rotation += 0.02
-				else:
-					if $Bow/Line2D.rotation > 17:
-						$Bow/Line2D.rotation -= 0.02
+				if mouse_position_at_shoot_start != null:
+					if mouse_position_at_shoot_start.x < position.x:
+						if $Bow/Line2D.rotation < -17:
+							$Bow/Line2D.rotation += 0.02
+					else:
+						if $Bow/Line2D.rotation > 17:
+							$Bow/Line2D.rotation -= 0.02
 			
 			if Input.is_action_just_released("shoot"):
 				$Bow/Line2D.visible = false
@@ -100,5 +101,5 @@ func _on_damage_timer_timeout() -> void:
 	if len(damage_queue) > 0:
 		health -= damage_queue.max()
 		if health <= 0:
-			get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+			get_tree().reload_current_scene()
 	damage_queue = []

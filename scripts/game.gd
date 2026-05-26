@@ -72,4 +72,4 @@ func _on_sceneout_area_2d_body_entered(body: Node2D) -> void:
 		var tween = create_tween()
 		tween.tween_property($CanvasLayer/ColorRect, "modulate", Color(0, 0, 0, 1), 1.0)
 		await tween.finished
-		get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+		get_tree().change_scene_to_file("res://scenes/level2.tscn")

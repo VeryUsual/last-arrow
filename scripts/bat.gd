@@ -106,8 +106,9 @@ func _on_damage_timer_timeout() -> void:
 	var overlapping_bodies = $DealDamageArea.get_overlapping_bodies()
 	
 	for body in overlapping_bodies:
-		if body.is_in_group("player"):
-			is_dealing_damage = true
-			body.take_damage(10)
-			await get_tree().create_timer(0.4).timeout
-			is_dealing_damage = false
+		if body:
+			if body.is_in_group("player"):
+				is_dealing_damage = true
+				body.take_damage(10)
+				await get_tree().create_timer(0.4).timeout
+				is_dealing_damage = false
