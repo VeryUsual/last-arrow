@@ -1,0 +1,20 @@
+~ start
+Unknown: How far you have come is... admirable.
+Unknown: It appears you have gotten very used to your Basic Arrow.
+Unknown: Shall it be time for a[wait=0.1]...[wait=0.1] [shake rate=10 level=5]new arrow[/shake]?
+Unknown: I give you... [wait=0.5][shake rate=5 level=5]ricochet arrows[/shake].
+Unknown: Powerful arrows with the capability to bounce off of walls.
+Unknown: Here, try these. Press 2 to go to your second inventory slot, then go hit that target over there by bouncing your arrows.
+=> END
+
+~ targetelimated
+Unknown: Wow, you learn... so quick.
+Unknown: You're almost ready for the...[next=auto]
+Unknown: Anyways, let's continue.
+=> END
+
+~ onemore
+Unknown: One more thing- you may be asking, now that I have these ricochet arrows, what is the purpose of my boring basic arrows?
+Unknown: Allow me to introduce you... to the shop.
+Unknown: Arrows are now, pricey. Thank capitalism for that.
+=> END

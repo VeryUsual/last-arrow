@@ -1,6 +1,7 @@
 extends Area2D
 
 var speed = 600
+var bounces = 0
 
 func _ready() -> void:
 	await get_tree().create_timer(43.0).timeout
@@ -14,4 +15,12 @@ func _on_body_entered(body: Node2D) -> void:
 		body.queue_free()
 		queue_free()
 	if not body.is_in_group("player"):
-		queue_free()
+		if bounces >= 7:
+			queue_free()
+		
+		speed = -1 * speed
+		if rotation < 0:
+			rotation -= 45
+		elif rotation > 0:
+			rotation += 45
+		bounces += 1

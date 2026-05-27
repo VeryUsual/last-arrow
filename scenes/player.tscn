@@ -62,19 +62,69 @@ end_cap_mode = 2
 
 [node name="HUD" type="CanvasLayer" parent="." unique_id=683010833]
 
-[node name="ArrowsLeftLabel" type="Label" parent="HUD" unique_id=1225673489]
-offset_left = 31.0
-offset_top = 4.0
-offset_right = 80.0
-offset_bottom = 42.0
+[node name="ArrowsNumbers" type="Label" parent="HUD" unique_id=1870180867]
+offset_top = 13.0
+offset_right = 40.0
+offset_bottom = 88.0
+text = "1.
+2."
+
+[node name="BasicArrow" type="Control" parent="HUD" unique_id=607987877]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 16.0
+offset_top = 12.0
+offset_right = 68.0
+offset_bottom = 37.0
+
+[node name="ArrowsLeftLabel" type="Label" parent="HUD/BasicArrow" unique_id=1225673489]
+layout_mode = 0
+offset_left = 26.900002
+offset_top = -8.0
+offset_right = 75.9
+offset_bottom = 30.0
 theme_override_fonts/font = ExtResource("4_dqkch")
 theme_override_font_sizes/font_size = 30
 text = "0"
 
-[node name="ArrowsLeftSprite" type="Sprite2D" parent="HUD" unique_id=1317436488]
-position = Vector2(17, 25)
+[node name="ArrowsLeftSprite" type="Sprite2D" parent="HUD/BasicArrow" unique_id=1317436488]
+position = Vector2(12.900002, 13)
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("6_tuyoq")
+
+[node name="CurrentIndicator" type="Sprite2D" parent="HUD/BasicArrow" unique_id=1302728109]
+position = Vector2(91.99999, 13)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_3vyb7")
+
+[node name="RicochetArrow" type="Control" parent="HUD" unique_id=945485653]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 16.0
+offset_top = 39.0
+offset_right = 68.0
+offset_bottom = 64.0
+
+[node name="ArrowsLeftLabel" type="Label" parent="HUD/RicochetArrow" unique_id=831734687]
+layout_mode = 0
+offset_left = 26.900002
+offset_top = -8.0
+offset_right = 75.9
+offset_bottom = 30.0
+theme_override_fonts/font = ExtResource("4_dqkch")
+theme_override_font_sizes/font_size = 30
+text = "0"
+
+[node name="ArrowsLeftSprite" type="Sprite2D" parent="HUD/RicochetArrow" unique_id=501528043]
+modulate = Color(0, 1, 1, 1)
+position = Vector2(12.900002, 13)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("6_tuyoq")
+
+[node name="CurrentIndicator" type="Sprite2D" parent="HUD/RicochetArrow" unique_id=566896679]
+position = Vector2(91.99999, 13)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_3vyb7")
 
 [node name="HealthBar" type="ProgressBar" parent="HUD" unique_id=186738478]
 anchors_preset = 2

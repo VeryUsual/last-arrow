@@ -3,24 +3,51 @@ extends CharacterBody2D
 @export var input_locked: bool = false
 
 var Arrow: PackedScene = preload("res://scenes/arrow.tscn")
+var RicochetArrow: PackedScene = preload("res://scenes/ricochet_arrow.tscn")
 const SPEED = 230.0
 const JUMP_VELOCITY = -370.0
 var mouse_position_at_shoot_start
 var can_release_bow = false
 var can_shoot = true
 var arrows = 5
+var ricochet_arrows = 0
 var coyote_frames = 6
 var coyote = false
 var last_floor = false
 var health = 100
 var damage_queue = []
+var current_selected_slot = 1
 
 func _ready() -> void:
 	$Bow/Line2D.visible = false
 	$CoyoteTimer.wait_time = coyote_frames / 60.0
 
 func _process(delta: float) -> void:
-	$HUD/ArrowsLeftLabel.text = str(arrows)
+	$HUD/BasicArrow/ArrowsLeftLabel.text = str(arrows)
+	
+	if ricochet_arrows == 0:
+		$HUD/RicochetArrow.visible = false
+		$HUD/ArrowsNumbers.visible = false
+		$HUD/BasicArrow/CurrentIndicator.visible = false
+		$HUD/RicochetArrow/CurrentIndicator.visible = false
+	else:
+		$HUD/RicochetArrow.visible = true
+		$HUD/RicochetArrow/ArrowsLeftLabel.text = str(ricochet_arrows)
+	
+		if Input.is_action_just_pressed("1"):
+			current_selected_slot = 1
+		if Input.is_action_just_pressed("2"):
+			current_selected_slot = 2
+		
+		if current_selected_slot == 1:
+			$HUD/BasicArrow/CurrentIndicator.visible = true
+		else:
+			$HUD/BasicArrow/CurrentIndicator.visible = false
+
+		if current_selected_slot == 2:
+			$HUD/RicochetArrow/CurrentIndicator.visible = true
+		else:
+			$HUD/RicochetArrow/CurrentIndicator.visible = false
 
 func _physics_process(delta: float) -> void:
 	# Gravity
@@ -49,7 +76,7 @@ func _physics_process(delta: float) -> void:
 			$CoyoteTimer.start()
 		last_floor = is_on_floor()
 		
-		if arrows > 0:
+		if (arrows > 0 and current_selected_slot == 1) or (ricochet_arrows > 0 and current_selected_slot == 2):
 			# Shooting
 			if Input.is_action_just_pressed("shoot") and can_shoot:
 				$Bow/Line2D.visible = true
@@ -84,12 +111,20 @@ func _physics_process(delta: float) -> void:
 	$HUD/HealthBar.value = health
 
 func shoot():
-	if arrows > 0:
-		arrows -= 1
-		var a = Arrow.instantiate()
-		get_tree().current_scene.add_child(a)
-		a.global_position = $Bow.global_position
-		a.global_rotation = $Bow/Line2D.global_rotation
+	if current_selected_slot == 1:
+		if arrows > 0:
+			arrows -= 1
+			var a = Arrow.instantiate()
+			get_tree().current_scene.add_child(a)
+			a.global_position = $Bow.global_position
+			a.global_rotation = $Bow/Line2D.global_rotation
+	elif current_selected_slot == 2:
+		if ricochet_arrows > 0:
+			ricochet_arrows -= 1
+			var a = RicochetArrow.instantiate()
+			get_tree().current_scene.add_child(a)
+			a.global_position = $Bow.global_position
+			a.global_rotation = $Bow/Line2D.global_rotation
 
 func _on_coyote_timer_timeout() -> void:
 	coyote = false

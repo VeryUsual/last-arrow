@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://ds3q8oww1ybdl"]
+
+[node name="Shop" type="Control" unique_id=1025146893]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BigPanel" type="Panel" parent="." unique_id=1231394122]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="BigPanel" unique_id=975790734]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -147.5
+offset_right = 147.5
+offset_bottom = 44.0
+grow_horizontal = 2
+text = "Shop"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel" type="Panel" parent="BigPanel" unique_id=16606707]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 46.0
+offset_bottom = -7.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BigPanel/Panel" unique_id=540078714]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BigPanel/Panel/HBoxContainer" unique_id=1956678239]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Button" type="Button" parent="BigPanel/Panel/HBoxContainer/VBoxContainer" unique_id=136025973]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Basic Arrow"
+
+[node name="Button2" type="Button" parent="BigPanel/Panel/HBoxContainer/VBoxContainer" unique_id=39332663]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Ricochet Arrow"
+
+[node name="Button3" type="Button" parent="BigPanel/Panel/HBoxContainer" unique_id=1656111065]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Fire Arrow"
