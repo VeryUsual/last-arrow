@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 DialogueManager="*uid://c3rodes2l3gxb"
 DebugCam="*uid://cv3vt4aagh25a"
+Globals="*uid://b48lpwvbha3eo"
 
 [display]
 

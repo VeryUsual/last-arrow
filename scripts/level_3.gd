@@ -3,8 +3,11 @@ extends Node2D
 var bat = preload("res://scenes/bat.tscn")
 var pastlockedgate = false
 var goodorder = false
+var start_time: int
 
 func _ready() -> void:
+	start_time = Time.get_ticks_msec()
+	
 	$CanvasLayer/EscMenu.visible = false
 	$TheLockedGateLabel2.visible = false
 	
@@ -44,7 +47,8 @@ func _process(delta: float) -> void:
 			tween2.tween_property($TheLockedGateLabel2, "modulate:a", 2.0, 2.0)
 	if find_children("Target*", "Node").size() == 0:
 		if goodorder:
-			get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+			Globals.completion_times[3] = (Time.get_ticks_msec() - start_time) / 1000
+			get_tree().change_scene_to_file("res://scenes/level4.tscn")
 		else:
 			if get_tree():
 				get_tree().reload_current_scene()

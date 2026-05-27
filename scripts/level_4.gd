@@ -1,8 +1,10 @@
 extends Node2D
 
 var bat = preload("res://scenes/bat.tscn")
+var start_time: int
 
 func _ready() -> void:
+	start_time = Time.get_ticks_msec()
 	$Player.input_locked = true
 	$Player.arrows = 32
 	$CanvasLayer/EscMenu.visible = false
@@ -28,3 +30,6 @@ func _on_back_to_game_button_pressed() -> void:
 
 func _on_quit_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+
+func bye():
+	Globals.completion_times[4] = (Time.get_ticks_msec() - start_time) / 1000

@@ -55,7 +55,12 @@ func _process(delta: float) -> void:
 				attacking = false
 	
 	if health <= 0:
-		get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+		get_tree().create_timer(0.1).timeout
+		get_tree().current_scene.bye()
+		Globals.current_chapter = 1
+		Globals.xp_earned += 100
+		get_tree().change_scene_to_file("res://scenes/chapter_completed.tscn")
+		queue_free()
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group("arrow"):

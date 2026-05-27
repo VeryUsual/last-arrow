@@ -3,8 +3,11 @@ extends Node2D
 var welcome_player_dialogue_resource: DialogueResource = load("res://dialogues/welcomeplayer.dialogue")
 var welcomeplayerbat_alreadydead = false
 var all_targets_dead = false
+var start_time: int
 
 func _ready() -> void:
+	start_time = Time.get_ticks_msec()
+	
 	$CanvasLayer/EscMenu.visible = false
 	
 	await get_tree().process_frame
@@ -67,6 +70,7 @@ func _on_dialogue_ended(resource):
 
 func _on_sceneout_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
+		Globals.completion_times[1] = (Time.get_ticks_msec() - start_time) / 1000
 		$CanvasLayer/ColorRect.modulate = Color(1, 1, 1, 0)
 		$CanvasLayer/ColorRect.visible = true
 		var tween = create_tween()

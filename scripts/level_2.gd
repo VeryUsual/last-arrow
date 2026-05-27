@@ -3,8 +3,11 @@ extends Node2D
 var level2_dialogue_resource: DialogueResource = load("res://dialogues/level2.dialogue")
 var bat = preload("res://scenes/bat.tscn")
 var current_dialogue = ""
+var start_time: int
 
 func _ready() -> void:
+	start_time = Time.get_ticks_msec()
+	
 	$CanvasLayer/EscMenu.visible = false
 	$Door/Label.visible = false
 	
@@ -23,6 +26,7 @@ func _process(delta: float) -> void:
 		$CanvasLayer/EscMenu.visible = not $CanvasLayer/EscMenu.visible
 	if Input.is_action_just_pressed("interact"):
 		if $Player in $Door/InteractArea.get_overlapping_bodies():
+			Globals.completion_times[2] = (Time.get_ticks_msec() - start_time) / 1000
 			get_tree().change_scene_to_file("res://scenes/level3.tscn")
 
 func _on_back_to_game_button_pressed() -> void:
