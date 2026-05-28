@@ -9,3 +9,10 @@ var completion_times = {
 } 
 var current_chapter_completion_time = 0
 var xp_earned = 0
+var gold = 0
+var arrows = {
+	"basic": 0,
+	"ricochet": 0,
+	"fire": 0
+}
+var next_scene = ""

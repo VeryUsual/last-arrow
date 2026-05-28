@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://ds3q8oww1ybdl"]
 
+[ext_resource type="Script" uid="uid://7hnt4v1xj6aj" path="res://scripts/shop.gd" id="1_lx5au"]
+
 [node name="Shop" type="Control" unique_id=1025146893]
 layout_mode = 3
 anchors_preset = 15
@@ -7,6 +9,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_lx5au")
 
 [node name="BigPanel" type="Panel" parent="." unique_id=1231394122]
 layout_mode = 1
@@ -25,6 +28,7 @@ offset_left = -147.5
 offset_right = 147.5
 offset_bottom = 44.0
 grow_horizontal = 2
+theme_override_font_sizes/font_size = 26
 text = "Shop"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -51,17 +55,54 @@ grow_vertical = 2
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Button" type="Button" parent="BigPanel/Panel/HBoxContainer/VBoxContainer" unique_id=136025973]
+[node name="BasicArrowButton" type="Button" parent="BigPanel/Panel/HBoxContainer/VBoxContainer" unique_id=136025973]
 layout_mode = 2
 size_flags_vertical = 3
-text = "Basic Arrow"
+text = "Basic Arrow
+1 gold each"
 
-[node name="Button2" type="Button" parent="BigPanel/Panel/HBoxContainer/VBoxContainer" unique_id=39332663]
+[node name="RicochetArrowButton" type="Button" parent="BigPanel/Panel/HBoxContainer/VBoxContainer" unique_id=39332663]
 layout_mode = 2
 size_flags_vertical = 3
-text = "Ricochet Arrow"
+text = "Ricochet Arrow
+2 gold each"
 
-[node name="Button3" type="Button" parent="BigPanel/Panel/HBoxContainer" unique_id=1656111065]
+[node name="FireArrowButton" type="Button" parent="BigPanel/Panel/HBoxContainer" unique_id=1656111065]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "Fire Arrow"
+text = "Fire Arrow
+3 gold each"
+
+[node name="GoldLabel" type="Label" parent="." unique_id=848163349]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -136.0
+offset_right = -16.0
+offset_bottom = 46.0
+grow_horizontal = 0
+text = "Gold: 1"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="ExitButton" type="Button" parent="." unique_id=1918241150]
+modulate = Color(1, 0.6901961, 1, 1)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -119.0
+offset_top = -39.0
+offset_right = -1.0
+offset_bottom = -1.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Exit"
+
+[connection signal="pressed" from="BigPanel/Panel/HBoxContainer/VBoxContainer/BasicArrowButton" to="." method="_on_basic_arrow_button_pressed"]
+[connection signal="pressed" from="BigPanel/Panel/HBoxContainer/VBoxContainer/RicochetArrowButton" to="." method="_on_ricochet_arrow_button_pressed"]
+[connection signal="pressed" from="BigPanel/Panel/HBoxContainer/FireArrowButton" to="." method="_on_fire_arrow_button_3_pressed"]
+[connection signal="pressed" from="ExitButton" to="." method="_on_exit_button_pressed"]

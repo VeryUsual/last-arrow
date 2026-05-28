@@ -41,9 +41,6 @@ func _on_back_to_game_button_pressed() -> void:
 func _on_quit_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
 
-func bye():
-	Globals.completion_times[5] = (Time.get_ticks_msec() - start_time) / 1000
-
 func _on_dialogue_ended(resource):
 	get_tree().paused = false
 	
@@ -70,4 +67,7 @@ func _on_dialogue_ended(resource):
 		dial_balloon.process_mode = Node.PROCESS_MODE_ALWAYS
 		get_tree().paused = true
 	elif last_dialogue == "onemore":
+		Globals.completion_times[5] = (Time.get_ticks_msec() - start_time) / 1000
+		Globals.gold += 40
+		Globals.next_scene = "res://scenes/level6.tscn"
 		get_tree().change_scene_to_file("res://scenes/shop.tscn")

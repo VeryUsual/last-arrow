@@ -59,6 +59,7 @@ func _process(delta: float) -> void:
 		get_tree().current_scene.bye()
 		Globals.current_chapter = 1
 		Globals.xp_earned += 100
+		Globals.next_scene = "res://scenes/level5.tscn"
 		get_tree().change_scene_to_file("res://scenes/chapter_completed.tscn")
 		queue_free()
 

@@ -6,8 +6,9 @@ func _ready() -> void:
 		if v is int or v is float:
 			total_time += v
 	Globals.xp_earned += round( total_time / 22 )
-	$Panel/Label.text = "Chapter cleared in " + str(total_time) + " seconds\n" + str(Globals.xp_earned) + " XP Earned"
+	$Panel/Label.text = "Playing for " + str(total_time) + " seconds\n" + str(Globals.xp_earned) + " XP Earned"
+	$Label.text = "Chapter " + str(Globals.current_chapter) + " Completed"
 	$AnimationPlayer.play("anim")
 
 func _on_next_chapter_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+	get_tree().change_scene_to_file(Globals.next_scene)
