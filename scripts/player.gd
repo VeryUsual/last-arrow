@@ -30,6 +30,7 @@ func _process(delta: float) -> void:
 		$HUD/ArrowsNumbers.visible = false
 		$HUD/BasicArrow/CurrentIndicator.visible = false
 		$HUD/RicochetArrow/CurrentIndicator.visible = false
+		current_selected_slot = 1
 	else:
 		$HUD/RicochetArrow.visible = true
 		$HUD/RicochetArrow/ArrowsLeftLabel.text = str(ricochet_arrows)

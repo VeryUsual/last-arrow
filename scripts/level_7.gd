@@ -4,16 +4,8 @@ var bat = preload("res://scenes/bat.tscn")
 var start_time: int
 
 func _ready() -> void:
-	$Player.arrows = Globals.arrows["basic"]
-	$Player.ricochet_arrows = Globals.arrows["ricochet"]
-	if ($Player.arrows + $Player.ricochet_arrows) < 5:
-		var tween = create_tween()
-		tween.tween_property($Player/Camera2D, "zoom", Vector2(0.4, 0.4), 1)
-		await get_tree().create_timer(1.0).timeout
-		Globals.next_scene = "res://scenes/level6.tscn"
-		if Globals.gold == 0:
-			Globals.gold = 40
-		get_tree().change_scene_to_file("res://scenes/shop.tscn")
+	$Player.arrows = 3
+	$Player.ricochet_arrows = 7
 	start_time = Time.get_ticks_msec()
 	$CanvasLayer/EscMenu.visible = false
 
@@ -25,10 +17,8 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("esc"):
 		$CanvasLayer/EscMenu.visible = not $CanvasLayer/EscMenu.visible
 	if find_children("Target*", "Node").size() == 0:
-		Globals.completion_times[6] = (Time.get_ticks_msec() - start_time) / 1000
-		Globals.current_chapter = 2
-		Globals.next_scene = "res://scenes/level7.tscn"
-		get_tree().change_scene_to_file("res://scenes/chapter_completed.tscn")
+		Globals.completion_times[7] = (Time.get_ticks_msec() - start_time) / 1000
+		get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
 
 func _on_back_to_game_button_pressed() -> void:
 	$CanvasLayer/EscMenu.visible = false
