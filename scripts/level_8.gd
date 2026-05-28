@@ -37,7 +37,7 @@ func _ready() -> void:
 	
 	await get_tree().create_timer(1.0).timeout
 	
-	for i in 30:
+	for i in 20:
 		var b = bat.instantiate()
 		b.position = Vector2(randi_range(800, 1056), randi_range(139, 235))
 		add_child(b)
