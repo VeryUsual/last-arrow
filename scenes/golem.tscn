@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://c3ll3d2hxc6o"]
+
+[ext_resource type="Script" uid="uid://ds52ss4i2l23w" path="res://scripts/morecomplexgolem.gd" id="1_6fya6"]
+[ext_resource type="SpriteFrames" uid="uid://c38qe13c3y066" path="res://otherstuff/golem_sprite_frames.tres" id="2_w3tsi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ff5ek"]
+size = Vector2(67, 67)
+
+[node name="Golem" type="Node2D" unique_id=339243278]
+script = ExtResource("1_6fya6")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=818487662]
+position = Vector2(-4, -2)
+scale = Vector2(3, 3)
+sprite_frames = ExtResource("2_w3tsi")
+animation = &"idle"
+flip_h = true
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1794108244]
+position = Vector2(-4, -2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2002202035]
+position = Vector2(4.5, 1.5)
+shape = SubResource("RectangleShape2D_ff5ek")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
