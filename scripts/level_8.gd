@@ -10,6 +10,7 @@ func _ready() -> void:
 	$Player.ricochet_arrows = 44
 	start_time = Time.get_ticks_msec()
 	$CanvasLayer/EscMenu.visible = false
+	$CanvasLayer/ProgressBar.visible = false
 	
 	await get_tree().create_timer(0.2).timeout
 	
@@ -50,6 +51,8 @@ func _ready() -> void:
 	$Golem2.visible = true
 	$Golem3.disabled = false
 	$Golem3.visible = true
+	
+	$CanvasLayer/ProgressBar.visible = true
 
 func _on_dialogue_ended(resource):
 	get_tree().paused = false
@@ -61,6 +64,25 @@ func _on_too_far_down_area_2d_body_entered(body: Node2D) -> void:
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("esc"):
 		$CanvasLayer/EscMenu.visible = not $CanvasLayer/EscMenu.visible
+	
+	var total_hp = 0
+	if get_node_or_null("Golem") != null:
+		total_hp += $Golem.health
+	if get_node_or_null("Golem2") != null:
+		total_hp += $Golem2.health
+	if get_node_or_null("Golem3") != null:
+		total_hp += $Golem3.health
+	
+	$CanvasLayer/ProgressBar.value = total_hp / 3
+	
+	if find_children("Golem*", "Node").size() == 0:
+		get_tree().paused = true
+		await get_tree().create_timer(0.7).timeout
+		get_tree().paused = false
+		Globals.completion_times[8] = (Time.get_ticks_msec() - start_time) / 1000
+		Globals.current_chapter = 3
+		Globals.next_scene = "res://scenes/main_menu.tscn"
+		get_tree().change_scene_to_file("res://scenes/chapter_completed.tscn")
 
 func _on_back_to_game_button_pressed() -> void:
 	$CanvasLayer/EscMenu.visible = false

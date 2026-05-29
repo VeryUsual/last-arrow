@@ -58,7 +58,7 @@ func _process(delta: float) -> void:
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group("arrow"):
-		health -= 10
+		health -= 5
 		
 		var tween = get_tree().create_tween()
 		tween.tween_property(self, "modulate:a", 0.2, 0.6)

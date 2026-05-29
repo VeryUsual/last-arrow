@@ -549,6 +549,17 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer" unique_id=27538478]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -123.5
+offset_top = 8.0
+offset_right = 123.5
+offset_bottom = 35.0
+grow_horizontal = 2
+show_percentage = false
+
 [node name="Bat" parent="." unique_id=1977565429 instance=ExtResource("5_ff5ek")]
 position = Vector2(569, 220)
 
