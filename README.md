@@ -1,6 +1,9 @@
 # Last Arrow
 
-Last arrow is a platformer where you must beat the level with a limited amount of arrows, created using the Godot Game Engine.
+Last arrow is a platformer where you must beat levels with a limited amount of arrows, with different types of arrows as the game progresses, created using the Godot Game Engine.
+
+Use WASD to move or jump (or space to jump if you prefer).
+To shoot your bow, hold the left mouse button, wait until you have a good angle, then release your left mouse button.
 
 ## License
 
